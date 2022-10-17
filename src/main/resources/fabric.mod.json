@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "legacyinputpatch",
+  "version": "1.8.9",
+  "name": "LegacyInputPatch",
+  "description": "InputFixForLegacyFabric",
+  "authors": [
+    "HowardZHY"
+  ],
+  "contact": {
+    "sources": "https://github.com/HowardZHY"
+  },
+  "license": "CUSTOM",
+  "icon": "assets/LegacyInputPatch/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "com128.kzf.m.LegacyInputPatch.LegacyInputPatchContainer"
+    ]
+  },
+
+  "mixins": [
+    "LegacyInputPatch.mixins.json"
+  ],
+  "depends": {
+  },
+  "custom": {
+    "modmenu:clientsideOnly": true
+  }
+}
