@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(ServerPacketListener.class)
-public class ServerPacketListenerMixin extends PacketListener {
+public abstract class ServerPacketListenerMixin extends PacketListener {
     @Shadow
     public ServerPlayerEntity player;
     @Shadow
