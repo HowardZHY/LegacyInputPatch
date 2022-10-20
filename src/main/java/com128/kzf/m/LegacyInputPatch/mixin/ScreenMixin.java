@@ -1,6 +1,6 @@
 package com128.kzf.m.LegacyInputPatch.mixin;
 
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.gui.screen.Screen;
 import org.spongepowered.asm.mixin.Mixin;
@@ -11,12 +11,9 @@ import org.lwjgl.input.Keyboard;
 @Mixin(Screen.class)
 public class ScreenMixin extends DrawableHelper {
   @Shadow
-  protected void keyPressed(char character, int code) {
-  }
-
-  ;
+  protected void keyPressed(char character, int code) {}
   @Shadow
-  protected MinecraftClient client;
+  protected Minecraft field_1229;
 
   @Overwrite
   public void method_1040() {
@@ -26,7 +23,7 @@ public class ScreenMixin extends DrawableHelper {
       this.keyPressed(var2, var1);
     if (Keyboard.getEventKeyState()) {
       if (var1 == 87) {
-        this.client.toggleFullscreen();
+        this.field_1229.toggleFullscreen();
         return;
       }
       this.keyPressed(var2, var1);

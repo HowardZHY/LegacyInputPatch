@@ -22,39 +22,41 @@ public abstract class ServerPacketListenerMixin extends PacketListener {
 
     @Overwrite
     public void onSignUpdate(SignUpdateS2CPacket packet) {
-        this.player.updateLastActionTime();
-        ServerWorld serverWorld = this.server.getWorld(this.player.dimension);
-        if (serverWorld.isPosLoaded(packet.x, packet.y, packet.z)) {
-            BlockEntity blockEntity = serverWorld.method_3781(packet.x, packet.y, packet.z);
-            if (blockEntity instanceof SignBlockEntity) {
-                SignBlockEntity signBlockEntity = (SignBlockEntity)blockEntity;
-                if (!signBlockEntity.isEditable() || signBlockEntity.getEditor() != this.player) {
-                    this.server.warn("Player " + this.player.getUsername() + " just tried to change non-editable sign");
+        ServerWorld var2 = this.server.getWorld(this.player.dimension);
+        if (var2.isPosLoaded(packet.x, packet.y, packet.z)) {
+            BlockEntity var3 = var2.method_3781(packet.x, packet.y, packet.z);
+            if (var3 instanceof SignBlockEntity) {
+                SignBlockEntity var4 = (SignBlockEntity)var3;
+                if (!var4.isEditable()) {
+                    this.server.warn("Player " + this.player.username + " just tried to change non-editable sign");
                     return;
                 }
             }
-            int n;
-            for (n = 0; n < 4; n++) {
-                boolean bl = true;
-                if (packet.text[n].length() > 15) {
-                    bl = false;
+            int var6;
+            int var8;
+            for(var8 = 0; var8 < 4; ++var8) {
+                boolean var5 = true;
+                if (packet.text[var8].length() > 15) {
+                    var5 = false;
                 } else {
-                    for (int n3 = 0; n3 < packet.text[n].length(); n3++) {
-                        if (!SharedConstants.isValidChar(packet.text[n].charAt(n3)))
-                            bl = false;
+                    for(var6 = 0; var6 < packet.text[var8].length(); ++var6) {
+                        if (!SharedConstants.isValidChar(packet.text[var8].charAt(var6))){
+                            var5 = false;
+                        }
                     }
                 }
-                if (!bl)
-                    packet.text[n] = "BadSignText";
+                if (!var5) {
+                    packet.text[var8] = "!?";
+                }
             }
-            if (blockEntity instanceof SignBlockEntity) {
-                n = packet.x;
-                int n2 = packet.y;
-                int n3 = packet.z;
-                SignBlockEntity signBlockEntity2 = (SignBlockEntity)blockEntity;
-                System.arraycopy(packet.text, 0, signBlockEntity2.field_560, 0, 4);
-                signBlockEntity2.markDirty();
-                serverWorld.method_3709(packet.x, packet.y, packet.z);
+            if (var3 instanceof SignBlockEntity) {
+                var8 = packet.x;
+                int var9 = packet.y;
+                var6 = packet.z;
+                SignBlockEntity var7 = (SignBlockEntity)var3;
+                System.arraycopy(packet.text, 0, var7.field_560, 0, 4);
+                var7.markDirty();
+                var2.method_3709(var8, var9, var6);
             }
         }
     }

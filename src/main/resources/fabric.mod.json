@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "legacyinputpatch",
-  "version": "1.6.4",
+  "version": "1.5.2",
   "name": "LegacyInputPatch",
   "description": "InputFixForLegacyFabric",
   "authors": [
@@ -15,8 +15,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com128.kzf.m.LegacyInputPatch.LegacyInputPatchContainer",
-      "com128.kzf.m.LegacyInputPatch.LegacySignPatchContainer",
+      "com128.kzf.m.LegacyInputPatch.LegacyInputPatchContainer"
     ]
   },
   "mixins": [
