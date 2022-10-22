@@ -3,6 +3,7 @@ package com128.kzf.m.LegacyInputPatch.mixin;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.util.OperatingSystem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
@@ -29,7 +30,7 @@ public class ScreenMixin extends DrawableHelper {
         return;
       }
       if (field_5093 && var1 == 28 && var2 == '\000')
-        i = 29; 
+        var1 = 29; 
       this.keyPressed(var2, var1);
     }
   }
