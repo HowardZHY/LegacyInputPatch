@@ -17,8 +17,6 @@ public class SignEditScreenMixin extends Screen {
     private SignBlockEntity sign;
     @Shadow
     private int currentRow;
-    @Shadow
-    private ButtonWidget field_5732;
 
     @Overwrite
     protected void keyPressed(char character, int code) {
@@ -33,9 +31,6 @@ public class SignEditScreenMixin extends Screen {
         }
         if (SharedConstants.isValidChar(character) && this.sign.field_560[this.currentRow].length() < 15) {
             this.sign.field_560[this.currentRow] = this.sign.field_560[this.currentRow] + character;
-        }
-        if (code == 1) {
-            this.buttonClicked(this.field_5732);
         }
     }
 }
