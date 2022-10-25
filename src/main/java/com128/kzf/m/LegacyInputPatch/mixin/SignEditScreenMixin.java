@@ -3,7 +3,6 @@ package com128.kzf.m.LegacyInputPatch.mixin;
 import net.minecraft.block.entity.SignBlockEntity;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.SignEditScreen;
-import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.util.SharedConstants;
 import org.lwjgl.input.Keyboard;
 import org.spongepowered.asm.mixin.Mixin;

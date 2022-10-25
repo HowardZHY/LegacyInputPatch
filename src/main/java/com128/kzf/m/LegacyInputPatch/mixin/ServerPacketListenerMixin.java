@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.Shadow;
 @Mixin(ServerPacketListener.class)
 public abstract class ServerPacketListenerMixin extends PacketListener {
     @Shadow
-    public ServerPlayerEntity player;
+    private ServerPlayerEntity player;
     @Shadow
     private MinecraftServer server;
 
