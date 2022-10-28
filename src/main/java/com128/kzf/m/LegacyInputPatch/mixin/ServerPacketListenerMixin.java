@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.Shadow;
 @Mixin(ServerPacketListener.class)
 public abstract class ServerPacketListenerMixin extends PacketListener {
     @Shadow
-    public ServerPlayerEntity player;
+    private ServerPlayerEntity player;
     @Shadow
     private MinecraftServer server;
 
@@ -24,7 +24,7 @@ public abstract class ServerPacketListenerMixin extends PacketListener {
     public void onSignUpdate(SignUpdateS2CPacket packet) {
         ServerWorld var2 = this.server.getWorld(this.player.dimension);
         if (var2.isPosLoaded(packet.x, packet.y, packet.z)) {
-            BlockEntity var3 = var2.method_3781(packet.x, packet.y, packet.z);
+            BlockEntity var3 = var2.getBlockEntity(packet.x, packet.y, packet.z);
             if (var3 instanceof SignBlockEntity) {
                 SignBlockEntity var4 = (SignBlockEntity)var3;
                 if (!var4.isEditable()) {
