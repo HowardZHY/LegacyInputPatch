@@ -15,19 +15,12 @@ public class SignEditScreenMixin extends Screen {
 
     @Shadow
     private SignBlockEntity sign;
+
     @Shadow
     private int currentRow;
+
     @Shadow
     private ButtonWidget field_5732;
-
-    @Overwrite
-    protected void buttonClicked(ButtonWidget button) {
-        if (button.active)
-            if (button.id == 0) {
-                this.sign.markDirty();
-                this.client.openScreen((Screen) null);
-            }
-    }
 
     @Overwrite
     protected void keyPressed(char character, int code) {

@@ -4,11 +4,11 @@
   "package": "com128.kzf.m.LegacyInputPatch.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "ServerPacketListenerMixin",
+    "ServerPacketListenerMixin"
   ],
   "client": [
     "ScreenMixin",
-    "SignEditScreenMixin",
+    "SignEditScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
