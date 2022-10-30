@@ -1,16 +1,9 @@
-# Fabric Example Mod
+# Legacy Input Patch
 
-## Setup
+## https://modrinth.com/mod/legacyinputpatch
 
-1. Edit gradle.properties, build.gradle and mod.json to suit your needs.
-    * The "mixins" object can be removed from mod.json if you do not need to use mixins.
-    * Please replace all occurences of "modid" with your own mod ID - sometimes, a different string may also suffice.
-2. Run the following command:
-
-```
-./gradlew
-```
+A mixin patch like InputFix that lets players input multi-byte characters (like Chinese, Korean and Japanese) ingame for Legacy Fabric.
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+This mod is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
