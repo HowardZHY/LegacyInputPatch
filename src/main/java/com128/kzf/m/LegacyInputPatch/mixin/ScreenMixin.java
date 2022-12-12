@@ -11,10 +11,7 @@ import org.lwjgl.input.Keyboard;
 @Mixin(Screen.class)
 public class ScreenMixin extends DrawableHelper {
   @Shadow
-  protected void keyPressed(char character, int code) {
-  }
-
-  ;
+  protected void keyPressed(char character, int code) {};
   @Shadow
   protected MinecraftClient client;
 
